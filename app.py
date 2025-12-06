@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Load CSV
-df = pd.read_csv("backend/recipes.csv")
+df = pd.read_csv("backend/recipes1.csv")
 
 # Streamlit UI
 st.title("Kitchen coder🍇")
