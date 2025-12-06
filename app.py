@@ -1,0 +1,21 @@
+import pandas as pd
+import streamlit as st
+
+# Load CSV
+df = pd.read_csv("backend/recipes.csv")
+
+# Streamlit UI
+st.title("Kitchen coder🍇")
+dish_name = st.text_input("Enter dish name:")
+
+if dish_name:
+    dish_name_lower = dish_name.lower()
+    matched = df[df['Dish'].str.lower() == dish_name_lower]
+    if not matched.empty:
+        recipe_info = matched.iloc[0]
+        st.write(f"**Dish:** {recipe_info['Dish']}")
+        st.write(f"**Time:** {recipe_info['Time']} mins")
+        st.write(f"**Tips:** {recipe_info['Tips']}")
+        st.write(f"**Recipe Steps:** {recipe_info['Recipe']}")
+    else:
+        st.write("Sorry, recipe not found.")
