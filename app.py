@@ -10,7 +10,7 @@ dish_name = st.text_input("Enter dish name:")
 
 if dish_name:
     dish_name_lower = dish_name.lower()
-    matched = df[df['Dish'].str.lower() == dish_name_lower]
+    matched = df[df['Dish name'].str.lower() == dish_name_lower]
     if not matched.empty:
         recipe_info = matched.iloc[0]
         st.write(f"**cuisine:** {recipe_info['cooking style']}")
